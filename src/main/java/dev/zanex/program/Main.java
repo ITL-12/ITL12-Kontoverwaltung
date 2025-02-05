@@ -1,6 +1,5 @@
 package dev.zanex.program;
 
-import dev.zanex.commands.HelpCommand;
 import dev.zanex.handler.BankAccountHandler;
 import dev.zanex.handler.CommandHandler;
 import dev.zanex.handler.OutputHandler;

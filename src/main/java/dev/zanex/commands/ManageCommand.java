@@ -4,7 +4,6 @@ import dev.zanex.objects.BankAccount;
 import dev.zanex.objects.Command;
 import dev.zanex.program.Main;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ManageCommand extends Command {

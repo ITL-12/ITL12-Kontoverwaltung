@@ -8,11 +8,13 @@ import java.util.List;
 public class BankAccount {
     private final String accountNumber;
     private final String bankCode;
+
     private final AccountHolder accountHolder;
     private final BankAccountType accountType;
+
     private double balance;
-    private double overdraftLimit;
-    private double accountFees;
+    private final double overdraftLimit;
+    private final double accountFees;
 
     public BankAccount(String accountNumber, String firstName, String lastName, BankAccountType accountType, String bankCode, double overdraftLimit, double accountFees) {
         this.accountNumber = accountNumber;
@@ -64,6 +66,15 @@ public class BankAccount {
             balance -= amount;
         } else {
             System.out.println("Invalid withdraw amount or insufficient funds.");
+        }
+    }
+
+    public void transfer(BankAccount target, double amount) {
+        if (amount > 0 && (balance + overdraftLimit) >= amount) {
+            balance -= amount;
+            target.deposit(amount);
+        } else {
+            System.out.println("Invalid transfer amount or insufficient funds.");
         }
     }
 

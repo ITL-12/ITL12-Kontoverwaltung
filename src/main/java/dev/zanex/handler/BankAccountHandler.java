@@ -1,15 +1,14 @@
 package dev.zanex.handler;
 
-        import dev.zanex.objects.BankAccount;
-        import dev.zanex.program.Main;
-        import dev.zanex.types.BankAccountType;
+import dev.zanex.objects.BankAccount;
+import dev.zanex.program.Main;
+import dev.zanex.types.BankAccountType;
 
-        import java.security.MessageDigest;
-        import java.security.NoSuchAlgorithmException;
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.Random;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class BankAccountHandler {
     private final Map<String, BankAccount> accounts = new HashMap<>();

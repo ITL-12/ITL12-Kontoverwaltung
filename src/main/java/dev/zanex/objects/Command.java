@@ -1,8 +1,5 @@
 package dev.zanex.objects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Command {
     private final String name;
     private final String description;
