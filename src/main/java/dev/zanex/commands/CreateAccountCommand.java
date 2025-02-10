@@ -1,5 +1,6 @@
 package dev.zanex.commands;
 
+import dev.zanex.objects.AccountHolder;
 import dev.zanex.objects.BankAccount;
 import dev.zanex.objects.Command;
 import dev.zanex.objects.CreditAccount;
@@ -8,6 +9,7 @@ import dev.zanex.types.BankAccountType;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class CreateAccountCommand extends Command {
@@ -29,8 +31,12 @@ public class CreateAccountCommand extends Command {
         String accountType = scanner.nextLine();
 
         if(accountType.equals(BankAccountType.CREDIT.name())) {
-            System.out.println("Enter a account number:");
-            BankAccount account = Main.getAccountHandler().getAccounts().get(scanner.nextLine());
+            BankAccount account = Main.getAccountHandler().getAccounts().values().stream().filter(acc -> acc.getAccountHolder().getFullName().equals(firstName + " " + lastName)).findFirst().orElse(null);
+
+            if(account == null) {
+                System.out.println("Account not found.");
+                return;
+            }
 
             System.out.println("Enter a credit amount:");
             double creditLimit = Double.parseDouble(scanner.nextLine());
