@@ -32,6 +32,9 @@ public class CommandHandler implements Runnable {
 
         ManageCommand manage = new ManageCommand();
         commands.put(manage.getName(), manage);
+
+        TransferMoneyCommand transferMoney = new TransferMoneyCommand();
+        commands.put(transferMoney.getName(), transferMoney);
     }
 
     @Override

@@ -27,10 +27,6 @@ public class BankAccountHandler {
                 overdraftLimit = 0.00;
                 yield -5.00;
             }
-            case CREDIT -> {
-                overdraftLimit = 2000.00;
-                yield 20.00;
-            }
             default -> throw new IllegalArgumentException("Unknown account type: " + accountType);
         };
 
@@ -52,7 +48,9 @@ public class BankAccountHandler {
         BankAccount account = accounts.get(accountNumber);
         if (account != null) {
             account.deposit(amount);
-        } else {
+        } else if(account.getAccountType().equals(BankAccountType.CREDIT)) {
+            System.out.println("Credit accounts cannot be deposited into.");
+        }else {
             System.out.println("Account not found.");
         }
     }

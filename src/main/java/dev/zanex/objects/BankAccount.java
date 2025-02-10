@@ -70,7 +70,7 @@ public class BankAccount {
     }
 
     public void transfer(BankAccount target, double amount) {
-        if (amount > 0 && (balance + overdraftLimit) >= amount) {
+        if (amount > 0 && (balance + overdraftLimit) <= amount) {
             balance -= amount;
             target.deposit(amount);
         } else {
