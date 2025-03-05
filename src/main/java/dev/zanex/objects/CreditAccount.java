@@ -3,6 +3,8 @@ package dev.zanex.objects;
 import dev.zanex.program.Main;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreditAccount {
     private final BankAccount holder;
@@ -60,5 +62,15 @@ public class CreditAccount {
         Main.getOutputHandler().println("&7[&bCREDIT&7] &aHolder: &e" + holder.getAccountHolder().getFirstName() + " " + holder.getAccountHolder().getLastName());
         Main.getOutputHandler().println("&7[&bCREDIT&7] &aAmount: &e€ " + amount);
         Main.getOutputHandler().println("&7[&bCREDIT&7] &aDue Date: &e" + dueDate);
+    }
+
+    public String getStatement() {
+        List<String> statements = List.of(
+                "Holder: " + holder.getAccountHolder().getFirstName() + " " + holder.getAccountHolder().getLastName(),
+                "Amount: € " + amount,
+                "Due Date: " + dueDate
+        );
+
+        return String.join("\n", statements);
     }
 }

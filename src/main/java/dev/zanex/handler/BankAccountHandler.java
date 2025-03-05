@@ -131,4 +131,10 @@ public class BankAccountHandler {
             throw new RuntimeException(e);
         }
     }
+
+    public BankAccount getAccountByName(String firstName, String lastName) {
+        return accounts.values().stream().filter(account ->
+            account.getAccountHolder().getFullName().equals(firstName + " " + lastName)
+        ).findFirst().orElse(null);
+    }
 }

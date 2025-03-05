@@ -91,4 +91,18 @@ public class BankAccount {
 
          Main.getOutputHandler().printTable("Account Statement", output);
     }
+
+    public String getStatement() {
+        List<String> output = List.of(
+                "Account Holder: " + accountHolder.getFirstName() + " " + accountHolder.getLastName(),
+                "Account Number: " + accountNumber,
+                "Bank Code: " + bankCode,
+                "Account Type: " + accountType,
+                "Balance: " + balance,
+                "Overdraft Limit: " + overdraftLimit,
+                "Account Fees: " + accountFees
+        );
+
+        return String.join("\n", output);
+    }
 }
